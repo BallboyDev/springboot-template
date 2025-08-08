@@ -1,12 +1,12 @@
 package com.ballboy.shop.member;
 
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@CrossOrigin(origins = "*")
+// @CrossOrigin(origins = "*")
 public class MemberController {
 
     private final MemberService memberService;
@@ -23,6 +23,13 @@ public class MemberController {
         System.out.println(member.toString());
 
         return result;
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody Member member) {
+        String token = memberService.login(member.getDisplayName(), member.getPassword());
+
+        return token;
     }
 
 }

@@ -8,6 +8,14 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Member {
+    public Member() {
+    }
+
+    public Member(String displayName, String password) {
+        this.displayName = displayName;
+        this.password = password;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 // @Controller
 @RestController
-@CrossOrigin(origins = "*")
+// @CrossOrigin(origins = "*")
 public class ItemController {
 
     private final ItemService itemService;

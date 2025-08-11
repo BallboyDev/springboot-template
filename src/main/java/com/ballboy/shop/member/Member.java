@@ -52,13 +52,13 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increament
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
 
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String displayName;
 
     @Override

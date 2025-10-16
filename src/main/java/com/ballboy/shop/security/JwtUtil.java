@@ -33,8 +33,9 @@ public class JwtUtil {
 
     /**
      * 토큰 생성
+     * 
      * @param username The username
-     * @param role The user's role
+     * @param role     The user's role
      * @return The JWT token
      */
     public String createToken(String username, String role) {
@@ -45,13 +46,14 @@ public class JwtUtil {
                 .setSubject(username)
                 .claim("auth", role) // 권한 정보 추가
                 .setIssuedAt(now)
-                .setExpiration(expiryDate)
+                .setExpiration(expiryDate) // 토큰 만료 시간
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
 
     /**
      * HTTP Request Header에서 토큰을 추출합니다.
+     * 
      * @param request The HTTP request
      * @return The token string or null
      */
@@ -65,6 +67,7 @@ public class JwtUtil {
 
     /**
      * 토큰의 유효성을 검증합니다.
+     * 
      * @param token The JWT token
      * @return True if the token is valid, false otherwise
      */
@@ -86,6 +89,7 @@ public class JwtUtil {
 
     /**
      * 토큰에서 사용자 정보를 추출합니다.
+     * 
      * @param token The JWT token
      * @return The claims from the token
      */

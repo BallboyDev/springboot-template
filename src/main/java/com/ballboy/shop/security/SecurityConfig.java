@@ -46,7 +46,7 @@ public class SecurityConfig {
                 // 요청 별 인가 규칙 설정
                 .authorizeHttpRequests(authz -> authz
                         // API PATH 는 고정인가?
-                        .requestMatchers("/login", "/join").permitAll()
+                        .requestMatchers("/login", "/join", "/auth").permitAll()
                         .requestMatchers("/list").hasRole("USER") // 'USER' 역할을 가진 사용자만 접근 가능
                         .anyRequest().authenticated())
                 // JwtAuthenticationFilter를 UsernamePasswordAuthenticationFilter 전에 추가
